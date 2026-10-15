@@ -1,0 +1,13 @@
+# Normalise line endings so the repository stays diff-friendly across platforms.
+* text=auto eol=lf
+
+# Cloudflare / build configuration is generated or machine-read; keep it literal.
+*.sql text
+*.toml text
+*.json text
+
+# Binary artefacts
+*.png binary
+*.jpg binary
+*.pdf binary
+*.woff2 binary

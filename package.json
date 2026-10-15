@@ -1,0 +1,45 @@
+{
+  "name": "lims",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Lightweight Laboratory Information Management System on Cloudflare Pages + D1",
+  "imports": {
+    "#lib/*": "./src/lib/*"
+  },
+  "scripts": {
+    "dev": "vite dev",
+    "dev:cf": "wrangler pages dev .svelte-kit/cloudflare",
+    "dev:watch": "vite build --watch",
+    "build": "vite build",
+    "preview": "npm run build && wrangler pages dev .svelte-kit/cloudflare",
+    "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+    "test": "vitest run",
+    "test:smoke": "node scripts/smoke.mjs",
+    "db:migrate:local": "wrangler d1 migrations apply lims --local",
+    "db:migrate:remote": "wrangler d1 migrations apply lims --remote",
+    "db:migrations:list": "wrangler d1 migrations list lims --local",
+    "db:demo:local": "wrangler d1 execute lims --local --file=./seeds/demo_samples.sql",
+    "db:tables:local": "wrangler d1 execute lims --local --command \"SELECT name FROM sqlite_master WHERE type='table' ORDER BY name\"",
+    "deploy": "npm run build && wrangler pages deploy .svelte-kit/cloudflare"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^5.20261014.1",
+    "@sveltejs/adapter-cloudflare": "^8.0.0",
+    "@sveltejs/kit": "^3.0.1",
+    "@sveltejs/vite-plugin-svelte": "^7.3.1",
+    "svelte": "^5.57.2",
+    "svelte-check": "^4.7.6",
+    "typescript": "^6.0.3",
+    "vite": "^8.3.4",
+    "vitest": "^5.0.4",
+    "wrangler": "^4.151.0"
+  },
+  "allowScripts": {
+    "esbuild@0.28.2": true,
+    "workerd@1.20261012.1": true
+  },
+  "dependencies": {
+    "drizzle-orm": "^0.45.4"
+  }
+}

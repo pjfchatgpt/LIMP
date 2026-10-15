@@ -1,0 +1,15 @@
+node_modules/
+.svelte-kit/
+.wrangler/
+.env
+.env.*
+!.env.example
+build/
+dist/
+coverage/
+*.log
+.DS_Store
+Thumbs.db
+.dev.vars
+# Cloudflare Pages writes this cache next to the build output
+.svelte-kit/cloudflare/

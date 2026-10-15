@@ -1,0 +1,21 @@
+#:schema node_modules/wrangler/config-schema.json
+name = "lims"
+compatibility_date = "2026-10-01"
+compatibility_flags = ["nodejs_compat"]
+
+# Setting pages_build_output_dir makes this a Cloudflare Pages project and tells
+# the SvelteKit Cloudflare adapter to emit a Pages `_worker.js` bundle here.
+pages_build_output_dir = ".svelte-kit/cloudflare"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "lims"
+# Replace with the id printed by:
+#   npx wrangler d1 create lims
+# A local-only D1 (wrangler d1 migrations apply --local) does not care about this
+# value, so the placeholder is safe until you deploy.
+database_id = "00000000-0000-0000-0000-000000000000"
+migrations_dir = "migrations"
+
+[vars]
+ENVIRONMENT = "production"
