@@ -14,7 +14,7 @@ database_name = "lims"
 #   npx wrangler d1 create lims
 # A local-only D1 (wrangler d1 migrations apply --local) does not care about this
 # value, so the placeholder is safe until you deploy.
-database_id = "00000000-0000-0000-0000-000000000000"
+database_id = "edecc2f8-e656-4dad-b7dd-ed7a4dc399ee"
 migrations_dir = "migrations"
 
 [vars]
